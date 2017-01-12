@@ -30,6 +30,7 @@ function get_next_menu_item( $menu_name ) {
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 	$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 	$i = -1;
+	$next_id = -1;
 	foreach ( $menuitems as $item ) {
 		$i++;
 		$id = get_post_meta( $item->ID, '_menu_item_object_id', true );
@@ -38,8 +39,11 @@ function get_next_menu_item( $menu_name ) {
 		}
 	}
 	$next = false;
-	if ( count( $menuitems ) > $next_id + 1 ) {
-		$next = $menuitems[ $next_id + 1 ];
+	if ( -1 === $next_id ) {
+		$next = $menuitems[0];
+	}
+	if ( count( $menuitems ) > $next_id + 1  ) {
+		$next = $menuitems[ $next_id + 1  ];
 	}
 	if ( $next ) {
 		$next = get_post_meta( $next->ID, '_menu_item_object_id', true );
@@ -55,6 +59,7 @@ function get_previous_menu_item( $menu_name ) {
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 	$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
 	$i = -1;
+	$next_id = -1;
 	foreach ( $menuitems as $item ) {
 		$i++;
 		$id = get_post_meta( $item->ID, '_menu_item_object_id', true );
@@ -63,6 +68,9 @@ function get_previous_menu_item( $menu_name ) {
 		}
 	}
 	$next = false;
+	if ( -1 === $next_id ) {
+		return false;
+	}
 	if ( $next_id > 0 ) {
 		$next = $menuitems[ $next_id - 1 ];
 	}
