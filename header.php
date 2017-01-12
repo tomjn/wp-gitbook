@@ -11,7 +11,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<body <?php body_class(); ?>>
 		<div class="book">
 			<?php get_sidebar(); ?>
 			<div class="book-body">
