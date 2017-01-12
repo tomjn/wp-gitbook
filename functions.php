@@ -29,6 +29,9 @@ function get_next_menu_item( $menu_name ) {
 	$locations = get_nav_menu_locations();
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 	$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+	if ( empty( $menuitems ) ) {
+		return false;
+	}
 	$i = -1;
 	$next_id = -1;
 	foreach ( $menuitems as $item ) {
@@ -58,6 +61,9 @@ function get_previous_menu_item( $menu_name ) {
 	$locations = get_nav_menu_locations();
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 	$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+	if ( empty( $menuitems ) ) {
+		return false;
+	}
 	$i = -1;
 	$next_id = -1;
 	foreach ( $menuitems as $item ) {
