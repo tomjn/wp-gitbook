@@ -1,6 +1,6 @@
 # wp-gitbook
 
-A port of the Gitbook theme for WordPress
+A port of the [Gitbook default theme](https://github.com/GitbookIO/theme-default) for WordPress
 
 ![screenshot](screenshot.png)
 
