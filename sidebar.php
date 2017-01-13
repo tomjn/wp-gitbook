@@ -5,7 +5,7 @@
 		</form>
 	</div>
 	<nav role="navigation">
-		<?php do_action('before_sidebar' ); ?>
+		<?php do_action( 'before_sidebar' ); ?>
 		<ul class="summary">
 			<li<?php
 			if ( is_home() ) {
@@ -34,7 +34,7 @@
 			</ul>
 			<?php
 		}
-		do_action('after_sidebar' );
+		do_action( 'after_sidebar' );
 		?>
 	</nav>
 </div>
