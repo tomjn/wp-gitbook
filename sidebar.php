@@ -5,8 +5,12 @@
 		</form>
 	</div>
 	<nav role="navigation">
+		<?php do_action('before_sidebar' ); ?>
 		<ul class="summary">
-			<li<?php if ( is_home() ) { echo ' class="active"'; } ?>>
+			<li<?php
+			if ( is_home() ) {
+				echo ' class="active"';
+			} ?>>
 			    <a href="<?php echo home_url(); ?>" class="custom-link"><?php echo esc_html( get_bloginfo('name') ); ?></a>
 			</li>
 			<li class="divider"></li>
@@ -30,6 +34,7 @@
 			</ul>
 			<?php
 		}
+		do_action('after_sidebar' );
 		?>
 	</nav>
 </div>
