@@ -1,6 +1,6 @@
 <div class="book-summary">
 	<div id="book-search-input" role="search">
-		<form method="get">
+		<form method="get" action="<?php echo esc_url( home_url() ); ?>">
 			<input type="text" name="s" placeholder="Type to search">
 		</form>
 	</div>
@@ -11,7 +11,7 @@
 			if ( is_home() ) {
 				echo ' class="active"';
 			} ?>>
-			    <a href="<?php echo home_url(); ?>" class="custom-link"><?php echo esc_html( get_bloginfo('name') ); ?></a>
+			    <a href="<?php echo esc_url( home_url() ); ?>" class="custom-link"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
 			</li>
 			<li class="divider"></li>
 		</ul>
