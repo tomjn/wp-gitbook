@@ -26,6 +26,11 @@ function githook_nav_classes( $classes ) {
 
 function get_next_menu_item( $menu_name ) {
 	global $post;
+
+	if ( empty( $post ) ) {
+		return false;
+	}
+
 	$locations = get_nav_menu_locations();
 	$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
 	$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
@@ -41,13 +46,16 @@ function get_next_menu_item( $menu_name ) {
 			$next_id = $i;
 		}
 	}
+
 	$next = false;
 	if ( -1 === $next_id ) {
 		$next = $menuitems[0];
 	}
+
 	if ( count( $menuitems ) > $next_id + 1  ) {
 		$next = $menuitems[ $next_id + 1  ];
 	}
+
 	if ( $next ) {
 		$next = get_post_meta( $next->ID, '_menu_item_object_id', true );
 		return get_post( $next );
