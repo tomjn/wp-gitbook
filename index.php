@@ -11,11 +11,11 @@ if ( have_posts() ) {
 		<div class="page-inner">
 				<section class="normal markdown-section">
 					<h1><?php
-					if ( is_archive() || is_home() ) {
+					if ( ! is_page() && ( is_archive() || is_home() ) ) {
 						?><a href="<?php the_permalink();?>"><?php
 					}
 					the_title();
-					if ( is_archive() || is_home() ) {
+					if ( ! is_page() && ( is_archive() || is_home() ) ) {
 						?></a><?php
 					}
 					?></h1>
