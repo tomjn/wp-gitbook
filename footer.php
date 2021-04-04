@@ -1,7 +1,5 @@
 					</div>
 					<?php
-					?>
-					<?php
 					$prev_post = get_previous_menu_item( 'summary' );
 					$next_post = get_next_menu_item( 'summary' );
 					if ( ! empty( $prev_post ) ) {
